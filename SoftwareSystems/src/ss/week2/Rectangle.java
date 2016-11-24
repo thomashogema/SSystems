@@ -16,6 +16,8 @@ public class Rectangle {
      * ensures width() == theWidth; 
      */
     public Rectangle(int theLength, int theWidth) {
+    	this.length = theLength;
+    	this.width = theWidth;
     }
     
     /**
@@ -23,7 +25,8 @@ public class Rectangle {
      */
     //@ ensures \result >= 0;
     /*@ pure */ public int length() {
-	return 0;
+    	assert length >= 0;
+	return this.length;
     }
 
     /**
@@ -31,7 +34,8 @@ public class Rectangle {
      */
     //@ ensures \result >= 0;
     /*@ pure */ public int width() {
-	return 0;
+    	assert width >= 0;
+	return this.width;
     }
 
     /**
@@ -40,13 +44,14 @@ public class Rectangle {
     //@ ensures \result >=0; /* not nessasary*/
     //@ ensures \result == length() * width();
     public int area() {
-	return 0;
+    assert width >= 0 && length >=0;
+	return this.length() * this.width();
     }
 
     /**
      * The perimeter of this Rectangle.
      */
     public int perimeter() {
-	return 0;
+	return 2 * this.length() + 2 * this.width();
     }
 }
